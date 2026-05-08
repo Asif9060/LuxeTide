@@ -295,7 +295,7 @@ export default function Home() {
                 { title: 'Safe Journey', icon: MapPin }
               ].map((v, i) => (
                 <div key={i} className="p-4 sm:p-6 md:p-8 bg-white/5 border border-white/10 space-y-3 sm:space-y-4 hover:border-gold/50 transition-colors">
-                  <v.icon size={24} className="text-gold sm:size-28 md:size-28" />
+                  <v.icon size={24} className="text-gold sm:size-28 md:size-15" />
                   <h4 className="text-base sm:text-lg font-heading text-white tracking-wide">{v.title}</h4>
                   <p className="text-[8px] sm:text-[10px] text-slate-600 uppercase tracking-widest">Guaranteed Quality</p>
                 </div>
