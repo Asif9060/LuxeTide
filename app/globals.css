@@ -1,26 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:italic,wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-accent: "Libre+Baskerville", serif;
+
+  --color-gold: #C5A059;
+  --color-gold-hover: #D4AF37;
+  --color-midnight: #05080F;
+  --color-deep-space: #020408;
+  
+  --color-bg-secondary: #0B1221;
+  --color-bg-tertiary: #070B14;
+
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-400 font-body antialiased selection:bg-gold/30 selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-slate-50 tracking-tight font-light;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .italic-accent {
+    @apply font-accent italic;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .luxury-glass {
+    @apply bg-slate-950/80 backdrop-blur-2xl border-b border-white/5 shadow-[0_8px_40px_rgba(0,0,0,0.6)];
+  }
+
+  .luxury-card {
+    @apply bg-slate-900/40 border border-white/5 hover:border-gold/20 transition-all duration-700 shadow-2xl;
+  }
+
+  .editorial-label {
+    @apply text-[10px] font-bold uppercase tracking-[0.4em] text-gold/80;
+  }
+
+  .gold-button {
+    @apply relative overflow-hidden bg-gold text-slate-950 hover:bg-white transition-all duration-500 font-bold px-10 py-5 uppercase tracking-[0.25em] text-[10px] shadow-[0_10px_30px_rgba(197,160,89,0.15)] hover:shadow-gold/20 active:scale-95;
+  }
+
+  .outline-button {
+    @apply relative overflow-hidden border border-white/20 text-white bg-transparent hover:bg-white/10 hover:border-white/40 transition-all duration-500 font-bold px-10 py-5 uppercase tracking-[0.25em] text-[10px] backdrop-blur-md active:scale-95;
+  }
+
+  .concierge-button {
+    @apply px-7 py-2.5 border border-gold/50 text-gold text-[9px] font-bold uppercase tracking-[0.2em] hover:bg-gold hover:text-slate-950 transition-all duration-500;
+  }
+
+  .luxury-container {
+    @apply max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16;
+  }
+}
+
+.luxury-glow {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+}
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
 }
