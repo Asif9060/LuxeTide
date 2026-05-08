@@ -51,11 +51,11 @@ export default function Home() {
                 initial={{ opacity: 0, letterSpacing: '0.2em' }}
                 animate={{ opacity: 1, letterSpacing: '0.5em' }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="editorial-label block text-gold"
+                className="editorial-label hidden sm:block text-gold"
               >
                 World Class Travel Experience
               </motion.span>
-              <h1 className="text-7xl md:text-9xl font-heading text-white leading-[0.95]">
+              <h1 className="text-5xl sm:text-7xl md:text-9xl font-heading text-white leading-[0.95]">
                 Book Your Next <br /><span className="italic-accent text-gold">Memorable</span> Trip.
               </h1>
               <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl">
@@ -68,11 +68,11 @@ export default function Home() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8 }}
-              className="bg-slate-900/60 backdrop-blur-3xl p-4 md:p-8 border border-white/10 shadow-3xl rounded-lg grid grid-cols-1 md:grid-cols-4 gap-6 items-end"
+              className="bg-slate-900/60 backdrop-blur-3xl p-3 sm:p-4 md:p-8 border border-white/10 shadow-3xl rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 items-end"
             >
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold">Destination</label>
-                <PremiumSelect className="h-12 bg-white/5 border-white/10 w-full text-white">
+                <label className="text-[8px] sm:text-[10px] uppercase tracking-widest text-gold font-bold">Destination</label>
+                <PremiumSelect className="h-10 sm:h-12 bg-white/5 border-white/10 w-full text-white text-sm sm:text-base">
                   <option className="bg-slate-900">Where to go?</option>
                   <option className="bg-slate-900">Sundarbans</option>
                   <option className="bg-slate-900">Saint Martin&apos;s</option>
@@ -80,8 +80,8 @@ export default function Home() {
                 </PremiumSelect>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold">Package Type</label>
-                <PremiumSelect className="h-12 bg-white/5 border-white/10 w-full text-white">
+                <label className="text-[8px] sm:text-[10px] uppercase tracking-widest text-gold font-bold">Package Type</label>
+                <PremiumSelect className="h-10 sm:h-12 bg-white/5 border-white/10 w-full text-white text-sm sm:text-base">
                   <option className="bg-slate-900">Select Package</option>
                   <option className="bg-slate-900">Luxury Curation</option>
                   <option className="bg-slate-900">Adventure Exped</option>
@@ -89,10 +89,10 @@ export default function Home() {
                 </PremiumSelect>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold">Date</label>
-                <PremiumInput type="date" className="h-12 bg-white/5 border-white/10 w-full" />
+                <label className="text-[8px] sm:text-[10px] uppercase tracking-widest text-gold font-bold">Date</label>
+                <PremiumInput type="date" className="h-10 sm:h-12 bg-white/5 border-white/10 w-full text-sm sm:text-base" />
               </div>
-              <PremiumButton className="h-12 w-full flex items-center justify-center gap-2 group text-xs">
+              <PremiumButton className="h-10 sm:h-12 w-full flex items-center justify-center gap-2 group text-xs sm:text-sm">
                 BOOK NOW <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </PremiumButton>
             </motion.div>
@@ -103,7 +103,7 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-24 bg-midnight border-b border-white/5 relative">
         <div className="luxury-container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {services.map((item, i) => (
               <motion.div
                 key={i}
@@ -139,20 +139,20 @@ export default function Home() {
                 alt="About" 
                     loading="lazy"
                     decoding="async"
-                className="w-full h-[600px] object-cover"
+                className="w-full h-48 sm:h-80 md:h-[600px] object-cover"
               />
             </div>
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-gold flex flex-col items-center justify-center text-slate-950 p-6 text-center rounded-sm shadow-3xl">
-              <span className="text-4xl font-heading font-bold italic">25+</span>
-              <span className="text-[10px] uppercase font-bold tracking-widest mt-2 uppercase">Years of Experience</span>
+            <div className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 md:-bottom-10 md:-right-10 w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 bg-gold flex flex-col items-center justify-center text-slate-950 p-4 sm:p-6 text-center rounded-sm shadow-3xl">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold italic">25+</span>
+              <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-widest mt-2 uppercase">Years of Experience</span>
             </div>
           </motion.div>
 
           <div className="space-y-10">
             <div className="space-y-6">
               <span className="editorial-label text-gold">About LuxeTide</span>
-              <h2 className="text-6xl font-heading text-white leading-tight">World Best Travel <br /><span className="italic-accent font-normal text-gold">Agency</span> Since 2000</h2>
-              <p className="text-slate-400 font-light text-xl leading-relaxed">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading text-white leading-tight">World Best Travel <br /><span className="italic-accent font-normal text-gold">Agency</span> Since 2000</h2>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 font-light leading-relaxed">
                 We believe that travel is not just about reaching a destination, but about the unique memories and stories created along the way.
               </p>
             </div>
@@ -175,16 +175,16 @@ export default function Home() {
 
       {/* Cruise Fleet Showcase */}
       <section className="py-32 bg-deep-space border-y border-white/5">
-        <div className="luxury-container space-y-20">
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
+        <div className="luxury-container space-y-12 sm:space-y-16 md:space-y-20">
+          <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto px-4 sm:px-0">
             <span className="editorial-label text-gold">Our Cruise Fleet</span>
-            <h2 className="text-6xl font-heading text-white leading-tight">Sail Aboard The <span className="italic-accent font-normal text-gold">Finest Ships</span></h2>
-            <p className="text-slate-400 font-light text-xl leading-relaxed">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading text-white leading-tight">Sail Aboard The <span className="italic-accent font-normal text-gold">Finest Ships</span></h2>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 font-light leading-relaxed">
               Discover our signature vessels, each crafted for comfort, elegance, and unforgettable sea journeys.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {SHIPS.map((ship, i) => (
               <motion.div
                 key={ship.id}
@@ -194,7 +194,7 @@ export default function Home() {
                 transition={{ delay: i * 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                 className="luxury-card overflow-hidden group"
               >
-                <div className="h-[360px] overflow-hidden relative">
+                <div className="h-56 md:h-72 lg:h-[360px] overflow-hidden relative">
                   <img
                     src={ship.image}
                     alt={ship.name}
@@ -210,8 +210,8 @@ export default function Home() {
 
                 <div className="p-8 space-y-6 bg-midnight/90 backdrop-blur-xl">
                   <div className="space-y-3">
-                    <h3 className="text-3xl font-heading text-white group-hover:text-gold transition-colors">{ship.name}</h3>
-                    <p className="text-slate-400 font-light leading-relaxed line-clamp-3">{ship.description}</p>
+                    <h3 className="text-2xl sm:text-3xl font-heading text-white group-hover:text-gold transition-colors">{ship.name}</h3>
+                    <p className="text-xs sm:text-sm md:text-base text-slate-400 font-light leading-relaxed line-clamp-3">{ship.description}</p>
                   </div>
 
                   <div className="space-y-3 border-t border-white/10 pt-5">
@@ -239,11 +239,11 @@ export default function Home() {
       {/* Popular Tours Section */}
       <section className="py-32 bg-deep-space">
         <div className="luxury-container">
-          <div className="text-center space-y-4 mb-20">
+          <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16 md:mb-20 px-4 sm:px-0">
             <span className="editorial-label">Expeditions</span>
-            <h2 className="text-6xl font-heading text-white">Our Popular Packages</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading text-white">Our Popular Packages</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-9 md:gap-12">
             {[...PACKAGES, ...PACKAGES].slice(0, 3).map((pkg, i) => (
               <motion.div
                 key={i}
@@ -253,7 +253,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="luxury-card group overflow-hidden"
               >
-                <div className="h-72 overflow-hidden relative">
+                <div className="h-48 sm:h-60 md:h-72 overflow-hidden relative">
                   <img src={pkg.image} alt={pkg.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" />
                   <div className="absolute top-4 left-4 bg-gold text-slate-950 px-3 py-1 font-bold text-[10px] rounded-sm uppercase tracking-widest">
                     Available
@@ -267,8 +267,8 @@ export default function Home() {
                     <span className="flex items-center gap-2 text-gold"><Calendar size={12} /> {pkg.duration}</span>
                     <span className="flex items-center gap-2"><Users size={12} /> 2+ People</span>
                   </div>
-                  <h3 className="text-2xl font-heading text-white group-hover:text-gold transition-colors">{pkg.title}</h3>
-                  <p className="text-sm text-slate-500 font-light line-clamp-2">{pkg.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-heading text-white group-hover:text-gold transition-colors">{pkg.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 font-light line-clamp-2">{pkg.description}</p>
                   <PremiumButton variant="outline" className="w-full h-12 flex items-center justify-center gap-2 group">
                     View Details <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </PremiumButton>
@@ -280,49 +280,49 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-32 bg-slate-950">
-        <div className="luxury-container grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-          <div className="space-y-12">
-            <div className="space-y-6">
+      <section className="py-16 sm:py-24 md:py-32 bg-slate-950">
+        <div className="luxury-container grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 md:gap-24 items-center">
+          <div className="space-y-8 sm:space-y-10 md:space-y-12">
+            <div className="space-y-4 sm:space-y-6">
               <span className="editorial-label">Core Values</span>
-              <h2 className="text-6xl font-heading text-white leading-tight">Why Choose This <br /><span className="italic-accent font-normal text-gold">Agency</span></h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading text-white leading-tight">Why Choose This <br /><span className="italic-accent font-normal text-gold">Agency</span></h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {[
                 { title: 'Best Guide', icon: Users },
                 { title: 'Easy Booking', icon: ArrowRight },
                 { title: 'Premium Trip', icon: Ship },
                 { title: 'Safe Journey', icon: MapPin }
               ].map((v, i) => (
-                <div key={i} className="p-8 bg-white/5 border border-white/10 space-y-4 hover:border-gold/50 transition-colors">
-                  <v.icon size={28} className="text-gold" />
-                  <h4 className="text-lg font-heading text-white tracking-wide">{v.title}</h4>
-                  <p className="text-[10px] text-slate-600 uppercase tracking-widest">Guaranteed Quality</p>
+                <div key={i} className="p-4 sm:p-6 md:p-8 bg-white/5 border border-white/10 space-y-3 sm:space-y-4 hover:border-gold/50 transition-colors">
+                  <v.icon size={24} className="text-gold sm:size-28 md:size-28" />
+                  <h4 className="text-base sm:text-lg font-heading text-white tracking-wide">{v.title}</h4>
+                  <p className="text-[8px] sm:text-[10px] text-slate-600 uppercase tracking-widest">Guaranteed Quality</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="relative">
-            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" alt="Why Choose Us" className="w-full h-[700px] object-cover grayscale opacity-60" />
+          <div className="relative hidden md:block">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" alt="Why Choose Us" className="w-full h-64 sm:h-96 md:h-[700px] object-cover grayscale opacity-60" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
           </div>
         </div>
       </section>
 
       {/* Featured Destinations (Editorial Pattern) */}
-      <section className="py-32 bg-bg-secondary border-t border-white/5">
-        <div className="luxury-container h-80 flex flex-col lg:flex-row">
+      <section className="py-16 sm:py-24 md:py-32 bg-bg-secondary border-t border-white/5">
+        <div className="luxury-container flex flex-col lg:flex-row">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="flex-1 flex flex-col justify-center border-r border-white/5 p-10 lg:p-20"
+            className="flex-1 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 p-6 sm:p-8 lg:p-20"
           >
-            <span className="editorial-label mb-3">Top Region</span>
-            <h3 className="text-4xl text-slate-100 font-heading">Saint Martin&apos;s</h3>
-            <p className="text-[10px] text-slate-500 uppercase tracking-[0.3em] font-bold mt-3">The Blue Lagoon • Coral Paradise</p>
+            <span className="editorial-label mb-2 sm:mb-3">Top Region</span>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl text-slate-100 font-heading">Saint Martin&apos;s</h3>
+            <p className="text-[8px] sm:text-[10px] text-slate-500 uppercase tracking-[0.3em] font-bold mt-3">The Blue Lagoon • Coral Paradise</p>
           </motion.div>
           
-          <div className="flex-[2] grid grid-cols-1 md:grid-cols-3 gap-0">
+          <div className="flex-[2] grid grid-cols-1 md:grid-cols-3 gap-0 min-h-64 md:min-h-80">
             {DESTINATIONS.slice(0, 3).map((item, i) => (
               <motion.div 
                 key={item.id}
@@ -330,13 +330,13 @@ export default function Home() {
                 whileInView={{ opacity: 1 }}
                 viewport={revealViewport}
                 transition={{ duration: 1, delay: i * 0.2 }}
-                className="group relative overflow-hidden h-80 lg:h-full border-r border-white/5 last:border-r-0"
+                className="group relative overflow-hidden h-64 md:h-80 lg:h-full border-r border-white/5 last:border-r-0"
               >
                 <img src={item.image} alt={item.name} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1.5s]" />
                 <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/10 transition-colors" />
-                <div className="absolute bottom-10 left-10">
-                  <p className="text-[10px] text-gold font-bold uppercase tracking-widest mb-2">Destination</p>
-                  <p className="text-lg font-heading text-white tracking-widest uppercase">{item.name}</p>
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 lg:bottom-10 lg:left-10">
+                  <p className="text-[8px] sm:text-[10px] text-gold font-bold uppercase tracking-widest mb-1 sm:mb-2">Destination</p>
+                  <p className="text-sm sm:text-base lg:text-lg font-heading text-white tracking-widest uppercase">{item.name}</p>
                 </div>
               </motion.div>
             ))}
@@ -345,7 +345,7 @@ export default function Home() {
       </section>
 
       {/* Footer Newsletter */}
-      <section className="py-32 relative overflow-hidden bg-midnight border-t border-white/5">
+      <section className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-midnight border-t border-white/5">
          <div className="absolute inset-0 opacity-10 pointer-events-none scale-110">
           <img 
             src="https://images.unsplash.com/photo-1544735716-392fe2489ffa" 
@@ -356,18 +356,18 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md"></div>
         </div>
-        <div className="luxury-container relative z-10 text-center max-w-4xl space-y-12">
-          <span className="editorial-label text-gold">Join The Newsletter</span>
-          <h2 className="text-5xl md:text-7xl font-heading text-white leading-tight">Get Special Discount</h2>
-          <p className="text-slate-400 font-light text-xl max-w-2xl mx-auto leading-relaxed">
+        <div className="luxury-container relative z-10 text-center max-w-4xl space-y-8 sm:space-y-10 md:space-y-12 px-4 sm:px-0">
+          <span className="editorial-label text-gold text-[8px] sm:text-[10px]">Join The Newsletter</span>
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-heading text-white leading-tight">Get Special Discount</h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
             Subscribe to our newsletter to receive invitation-only deals and early access to new fleet launches.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 mt-12 max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-10 md:mt-12 max-w-2xl mx-auto">
             <PremiumInput 
               placeholder="Your email address" 
-              className="flex-1 h-16 rounded-none text-lg"
+              className="flex-1 h-12 sm:h-14 md:h-16 rounded-none text-sm sm:text-base md:text-lg"
             />
-            <PremiumButton className="h-16 whitespace-nowrap px-12">Subscribe</PremiumButton>
+            <PremiumButton className="h-12 sm:h-14 md:h-16 whitespace-nowrap px-8 sm:px-10 md:px-12 text-xs sm:text-sm md:text-base">Subscribe</PremiumButton>
           </div>
         </div>
       </section>
