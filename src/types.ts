@@ -22,3 +22,86 @@ export interface Package {
   duration: string;
   image: string;
 }
+
+export interface Schedule {
+  id: string;
+  shipId: string;
+  shipName: string;
+  departureDate: string;
+  returnDate: string;
+  destination: string;
+  pricePerPerson: string;
+  totalCapacity: number;
+  bookedSeats: number;
+  status: 'scheduled' | 'ongoing' | 'completed' | 'cancelled';
+  amenities: string[];
+  itinerary: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type BookingStatus = 'pending' | 'confirmed' | 'completed' | 'cancelled';
+export type PaymentStatus = 'unpaid' | 'paid' | 'partial' | 'refunded';
+
+export interface Booking {
+  id: string;
+  customerName: string;
+  customerEmail: string;
+  customerPhone?: string;
+  travelStart: string;
+  travelEnd: string;
+  passengers: number;
+  shipId?: string;
+  packageId?: string;
+  destinationId?: string;
+  status: BookingStatus;
+  paymentStatus: PaymentStatus;
+  paymentMethod?: string;
+  totalAmount?: string;
+  specialRequests?: string;
+  adminNotes?: string;
+  createdAt: string;
+}
+
+export type UserRole = 'admin' | 'staff' | 'customer';
+export type UserStatus = 'active' | 'disabled' | 'invited';
+
+export interface AdminUser {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  role: UserRole;
+  status: UserStatus;
+  lastLogin?: string;
+  createdAt: string;
+}
+
+export type GalleryVisibility = 'public' | 'private';
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  caption?: string;
+  imageUrl: string;
+  sortOrder: number;
+  visibility: GalleryVisibility;
+  createdAt: string;
+}
+
+export type DiscountType = 'percent' | 'fixed';
+export type PromotionStatus = 'draft' | 'active' | 'expired';
+
+export interface Promotion {
+  id: string;
+  code: string;
+  title: string;
+  description?: string;
+  discountType: DiscountType;
+  discountValue: number;
+  startDate: string;
+  endDate: string;
+  usageLimit?: number;
+  status: PromotionStatus;
+  createdAt: string;
+}

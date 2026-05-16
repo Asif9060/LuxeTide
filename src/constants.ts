@@ -2,28 +2,28 @@ import { Ship, Destination, Package } from './types';
 
 export const SHIPS: Ship[] = [
   {
-    id: 'mv-bay-crown',
-    name: 'M.V. Bay Crown',
-    description: 'A masterpiece of contemporary luxury designed specifically for the calm waters of the Bay of Bengal.',
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa',
-    capacity: '800 Guests',
-    amenities: ['Emerald Dining', 'Infinity Deck', 'Private Balconies', 'Spa & Wellness']
+    id: 'the-wave-2',
+    name: 'M.V. The Wave 2',
+    description: 'A floating resort crafted for immersive journeys with expansive lounges, play zones, and panoramic suites.',
+    image: '/ships/the-wave-2/ship.jpg',
+    capacity: 'Luxury Class',
+    amenities: ['Play Zone', 'Swimming Pool', 'Infinity Royal Suite', 'Prayer Room']
   },
   {
-    id: 'sundarban-majestic',
-    name: 'Sundarban Majestic',
-    description: 'An expedition vessel crafted for the intricate channels of the world\'s largest mangrove forest.',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
-    capacity: '150 Guests',
-    amenities: ['Naturalist Library', 'Observatory Deck', 'Local Cuisine', 'Safari Tenders']
+    id: 'the-wave',
+    name: 'M.V. The Wave',
+    description: 'A contemporary cruise ship with signature decks, family-friendly spaces, and refined dining areas.',
+    image: '/ships/the-wave/The%20Wave%20Picture/The%20Wave3.jpg',
+    capacity: 'Premium Cruise',
+    amenities: ['Balcony Views', 'Food Zone', 'Play Ground', 'Conference Hall']
   },
   {
-    id: 'pearl-of-bengal',
-    name: 'Pearl of Bengal',
-    description: 'The ultimate floating retreat, featuring world-class luxury on the deep blue horizon.',
-    image: 'https://images.pexels.com/photos/32609063/pexels-photo-32609063.jpeg',
-    capacity: '1,200 Guests',
-    amenities: ['Grand Theater', 'Sea View Gym', 'Specialty Seafood', 'Personal Butler']
+    id: 'the-river-cruise',
+    name: 'The River Cruise',
+    description: 'A serene river journey with cinematic sunsets, cozy cabins, and elegant communal spaces.',
+    image: '/ships/the-river-cruise/River%20Cruise%20Photo/RiverCruise.jpg',
+    capacity: 'Boutique Cruise',
+    amenities: ['Scenic Decks', 'Standard Food Menu', 'Comfort Cabins', 'Onboard Facilities']
   }
 ];
 
@@ -61,7 +61,7 @@ export const PACKAGES: Package[] = [
     description: '4 nights exploring the deep Sundarbans and the Bay of Bengal.',
     price: 'From ৳85,000',
     duration: '5 Days',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4'
+    image: '/ships/the-wave-2/MASTER%20BRIDGE/DSC05359.jpg'
   },
   {
     id: 'coral-luxury',
@@ -69,6 +69,6 @@ export const PACKAGES: Package[] = [
     description: 'A private escape to the pristine shores of Saint Martin\'s.',
     price: 'From ৳120,000',
     duration: '7 Days',
-    image: 'https://images.pexels.com/photos/12652920/pexels-photo-12652920.jpeg'
+    image: '/ships/the-wave-2/Panorama%20Deluxe%20Suite/DSC05157.jpg'
   }
 ];

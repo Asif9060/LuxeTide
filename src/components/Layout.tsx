@@ -1,10 +1,19 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const isAdminRoute = pathname?.startsWith('/admin');
+
+  // For admin routes, render children without Navbar/Footer wrapper
+  if (isAdminRoute) {
+    return <>{children}</>;
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-slate-950">
       <Navbar />

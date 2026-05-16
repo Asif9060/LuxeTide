@@ -11,10 +11,12 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', path: '/', id: 'nav-home-link' },
     { name: 'Ships', path: '/ships', id: 'nav-ships-link' },
-    { name: 'Tours', path: '/packages', id: 'nav-tours-link' },
-    { name: 'Destinations', path: '/destinations', id: 'nav-destinations-link' },
-    { name: 'Pages', path: '/about', id: 'nav-pages-link' },
+    { name: 'Cabins', path: '/cabins', id: 'nav-cabins-link' },
+    { name: 'Dining', path: '/dining', id: 'nav-dining-link' },
+    { name: 'Services', path: '/services', id: 'nav-services-link' },
+    { name: 'Layout', path: '/layouts', id: 'nav-layout-link' },
     { name: 'Gallery', path: '/gallery', id: 'nav-gallery-link' },
+    { name: 'Our Policy', path: '/policy', id: 'nav-policy-link' },
     { name: 'Contact', path: '/contact', id: 'nav-contact-link' },
   ];
 
@@ -28,8 +30,8 @@ export default function Navbar() {
             <span className="flex items-center gap-2"><Mail size={12} className="text-gold" /> info@luxetide.com</span>
           </div>
           <div className="flex gap-6 uppercase">
-            <span>Login</span>
-            <span>Register</span>
+            <Link href="/auth/login" className="hover:text-gold transition-all">Login</Link>
+            <Link href="/auth/signup" className="hover:text-gold transition-all">Register</Link>
           </div>
         </div>
       </div>
@@ -54,7 +56,7 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <div className="h-4 w-[1px] bg-white/10 mx-2" />
+              <div className="h-4 w-px bg-white/10 mx-2" />
               <button className="concierge-button" data-testid="book-now-button">
                 Book Now
               </button>
@@ -91,6 +93,24 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <div className="pt-4 border-t border-white/10 space-y-3">
+                <Link
+                  href="/auth/login"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-sm uppercase tracking-widest text-slate-300 hover:text-gold"
+                  data-testid="mobile-login-link"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-sm uppercase tracking-widest text-slate-300 hover:text-gold"
+                  data-testid="mobile-register-link"
+                >
+                  Register
+                </Link>
+              </div>
               <button className="gold-button w-full" data-testid="mobile-book-now-button">
                 Book Now
               </button>

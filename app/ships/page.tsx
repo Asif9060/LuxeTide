@@ -2,7 +2,7 @@
 
 import { SHIPS } from '@/src/constants';
 import { motion } from 'motion/react';
-import { PremiumButton } from '@/src/components/PremiumUI';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export default function Ships() {
@@ -57,10 +57,18 @@ export default function Ships() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-6 pt-6">
-                  <PremiumButton className="flex-1 h-16 flex items-center justify-center gap-4 group">
+                  <Link
+                    href={`/ships/${ship.id}`}
+                    className="gold-button inline-flex items-center justify-center gap-4 h-16 flex-1 group"
+                  >
                     Explore Deck Plans <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-                  </PremiumButton>
-                  <PremiumButton variant="outline" className="h-16 px-10">Check Availability</PremiumButton>
+                  </Link>
+                  <Link
+                    href={`/ships/${ship.id}#booking`}
+                    className="outline-button inline-flex items-center justify-center h-16 px-10"
+                  >
+                    Check Availability
+                  </Link>
                 </div>
               </div>
             </motion.div>

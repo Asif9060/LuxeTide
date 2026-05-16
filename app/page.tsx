@@ -1,13 +1,30 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import Link from 'next/link';
 import { SHIPS, DESTINATIONS, PACKAGES } from '@/src/constants';
 import { Calendar, Users, MapPin, ArrowRight, Ship } from 'lucide-react';
 import { PremiumButton, PremiumInput, PremiumSelect } from '@/src/components/PremiumUI';
 
 export default function Home() {
   const containerRef = useRef(null);
+  const [suites, setSuites] = useState<Array<{ slug: string; title: string; priceLabel: string; ship: string; shipId: string; image?: { src: string } }>>([]);
+
+  // Fetch suites on client side
+  useEffect(() => {
+    const loadSuites = async () => {
+      try {
+        const response = await fetch('/api/suites');
+        const data = await response.json();
+        setSuites(data);
+      } catch (error) {
+        console.error('Failed to load suites:', error);
+      }
+    };
+    loadSuites();
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -226,9 +243,12 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <PremiumButton variant="outline" className="w-full h-12 flex items-center justify-center gap-2 group">
+                  <Link
+                    href={`/ships/${ship.id}`}
+                    className="outline-button w-full h-12 inline-flex items-center justify-center gap-2 group"
+                  >
                     Explore Ship <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </PremiumButton>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -240,38 +260,48 @@ export default function Home() {
       <section className="py-32 bg-deep-space">
         <div className="luxury-container">
           <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16 md:mb-20 px-4 sm:px-0">
-            <span className="editorial-label">Expeditions</span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading text-white">Our Popular Packages</h2>
+            <span className="editorial-label">Accommodations</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading text-white">Our Popular Suites</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-9 md:gap-12">
-            {[...PACKAGES, ...PACKAGES].slice(0, 3).map((pkg, i) => (
+            {/* Display first 3 suites */}
+            {suites.slice(0, 3).map((suite, i) => (
               <motion.div
-                key={i}
+                key={`suite-${i}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={revealViewport}
                 transition={{ delay: i * 0.1 }}
                 className="luxury-card group overflow-hidden"
               >
-                <div className="h-48 sm:h-60 md:h-72 overflow-hidden relative">
-                  <img src={pkg.image} alt={pkg.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" />
+                <div className="h-48 sm:h-60 md:h-72 overflow-hidden relative bg-slate-800">
+                  {suite.image?.src ? (
+                    <img src={suite.image.src} alt={suite.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s]" />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-gold/20 to-slate-800 flex items-center justify-center">
+                      <span className="text-slate-400">Suite Image</span>
+                    </div>
+                  )}
                   <div className="absolute top-4 left-4 bg-gold text-slate-950 px-3 py-1 font-bold text-[10px] rounded-sm uppercase tracking-widest">
-                    Available
+                    Suite
                   </div>
                   <div className="absolute bottom-4 right-4 bg-slate-900 border border-white/10 text-white px-3 py-1 font-heading text-lg rounded-sm shadow-xl">
-                    {pkg.price}
+                    {suite.priceLabel}
                   </div>
                 </div>
                 <div className="p-8 space-y-6">
                   <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                    <span className="flex items-center gap-2 text-gold"><Calendar size={12} /> {pkg.duration}</span>
-                    <span className="flex items-center gap-2"><Users size={12} /> 2+ People</span>
+                    <span className="flex items-center gap-2 text-gold"><Ship size={12} /> {suite.ship}</span>
+                    <span className="flex items-center gap-2"><Users size={12} /> 2+ Guests</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-heading text-white group-hover:text-gold transition-colors">{pkg.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 font-light line-clamp-2">{pkg.description}</p>
-                  <PremiumButton variant="outline" className="w-full h-12 flex items-center justify-center gap-2 group">
+                  <h3 className="text-xl sm:text-2xl font-heading text-white group-hover:text-gold transition-colors">{suite.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 font-light line-clamp-2">Premium accommodation with elegant furnishings and modern amenities.</p>
+                  <Link
+                    href={`/ships/${suite.shipId}/suites/${suite.slug}`}
+                    className="outline-button w-full h-12 inline-flex items-center justify-center gap-2 group"
+                  >
                     View Details <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </PremiumButton>
+                  </Link>
                 </div>
               </motion.div>
             ))}

@@ -20,6 +20,31 @@
 }
 
 @layer base {
+  /* Custom scrollbar styling */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #C5A059 #070B14;
+  }
+
+  html::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #070B14;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: #C5A059;
+    border-radius: 6px;
+    border: 3px solid #070B14;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+    transition: background 0.3s ease;
+  }
+
   body {
     @apply bg-slate-950 text-slate-400 font-body antialiased selection:bg-gold/30 selection:text-white;
   }
@@ -60,6 +85,26 @@
 
   .luxury-container {
     @apply max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: auto;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none !important;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar-track {
+    display: none !important;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar-thumb {
+    display: none !important;
   }
 }
 
