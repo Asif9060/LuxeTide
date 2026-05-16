@@ -323,35 +323,37 @@ function MediaSectionBlock({
           <p className="text-sm text-slate-500">{section.description}</p>
         )}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {section.items.map((item) => (
-          <button
-            key={item.src}
-            type="button"
-            onMouseEnter={() => onImagePrefetch(item.src)}
-            onFocus={() => onImagePrefetch(item.src)}
-            onClick={() =>
-              onImageClick({
-                src: item.src,
-                alt: item.title,
-                caption: item.caption ?? item.title
-              })
-            }
-            className="overflow-hidden text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
-            aria-label={`Open ${item.title} image`}
-          >
-            <div className="relative h-64 w-full">
-              <NextImage
-                src={item.src}
-                alt={item.title}
-                fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </button>
-        ))}
-      </div>
+      {section.items.length > 0 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {section.items.map((item, index) => (
+            <button
+              key={`${section.id}-${item.src}-${index}`}
+              type="button"
+              onMouseEnter={() => onImagePrefetch(item.src)}
+              onFocus={() => onImagePrefetch(item.src)}
+              onClick={() =>
+                onImageClick({
+                  src: item.src,
+                  alt: item.title,
+                  caption: item.caption ?? item.title
+                })
+              }
+              className="overflow-hidden text-left cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+              aria-label={`Open ${item.title} image`}
+            >
+              <div className="relative h-64 w-full">
+                <NextImage
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
